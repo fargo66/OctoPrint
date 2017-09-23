@@ -43,6 +43,8 @@ def _etag(configured, lm=None):
 	else:
 		hash.update(repr(sorted(slicingManager.registered_slicers)))
 
+	hash.update("v2") # increment version if we change the API format
+
 	return hash.hexdigest()
 
 
@@ -72,6 +74,7 @@ def slicingListAll():
 			result[slicer] = dict(
 				key=slicer,
 				displayName=slicer_impl.get_slicer_properties()["name"],
+				sameDevice=slicer_impl.get_slicer_properties()["same_device"],
 				default=default_slicer == slicer,
 				configured=slicer_impl.is_slicer_configured(),
 				profiles=_getSlicingProfilesData(slicer),

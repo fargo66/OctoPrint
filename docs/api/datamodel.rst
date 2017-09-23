@@ -31,7 +31,7 @@ Printer State
    * - ``flags``
      - 1
      - Printer state flags
-     - A couple of boolean printer state flags
+     - A few boolean printer state flags
    * - ``flags.operational``
      - 1
      - Boolean
@@ -286,9 +286,9 @@ Files
      - Type
      - Description
    * - ``hash``
-     - 1
+     - 0..1
      - String
-     - MD5 hash of the file
+     - MD5 hash of the file. Only available for ``local`` files.
    * - ``size``
      - 0..1
      - Number
